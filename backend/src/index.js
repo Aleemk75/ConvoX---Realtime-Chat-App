@@ -21,7 +21,7 @@ app.use(express.urlencoded({ limit: "10mb", extended: true }));
 // Cookies
 app.use(cookieParser());
 
-// CORS for local dev only; in production, frontend served from same origin
+// CORS for local development only
 if (process.env.NODE_ENV !== "production") {
   const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
   app.use(
@@ -44,7 +44,7 @@ if (process.env.NODE_ENV === "production") {
 
   app.use(express.static(frontendPath));
 
-  // Catch-all route
+  // Catch-all route for React router
   app.get("*", (req, res) => {
     const indexFile = path.join(frontendPath, "index.html");
     res.sendFile(indexFile, (err) => {
