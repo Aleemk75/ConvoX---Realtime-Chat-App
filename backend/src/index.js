@@ -23,14 +23,15 @@ app.use(cookieParser());
 // CORS for local development only
 
 
-  app.use(
-    cors({
-      origin: "http://localhost:5173",
-      methods: ["GET", "POST", "PUT", "DELETE"],
-      credentials: true,
-    })
-  );
+const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 
+app.use(
+  cors({
+    origin: FRONTEND_URL,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 // API routes
 
