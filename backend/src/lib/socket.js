@@ -5,12 +5,10 @@ import express from "express";
 const app = express();
 const server = http.createServer(app);
 
-// Use FRONTEND_URL only in dev
-const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
 
 const io = new Server(server, {
   cors: {
-    origin: process.env.NODE_ENV === "production" ? "*" : FRONTEND_URL,
+    origin:"http://localhost:5173",
     methods: ["GET", "POST"],
     credentials: true,
   },
