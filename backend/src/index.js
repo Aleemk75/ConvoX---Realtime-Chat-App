@@ -50,15 +50,15 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static(frontendPath));
 
   // Catch-all route for React router
-  app.get("*", (req, res) => {
-    const indexFile = path.join(frontendPath, "index.html");
-    res.sendFile(indexFile, (err) => {
-      if (err) {
-        console.error("Error sending index.html:", err);
-        res.status(500).send("Server error");
-      }
-    });
+app.get("*", (req, res) => {
+  const indexFile = path.join(frontendPath, "index.html");
+  res.sendFile(indexFile, (err) => {
+    if (err) {
+      console.error("Error sending index.html:", err);
+      res.status(500).send("Server error");
+    }
   });
+});
 }
 
 // Start server
