@@ -5,7 +5,7 @@ import express from "express";
 const app = express();
 const server = http.createServer(app);
 
-const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
+const FRONTEND_URL = "https://convox-realtime-chat-app-frontend.onrender.com";
 
 const io = new Server(server, {
   cors: {

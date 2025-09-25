@@ -23,7 +23,7 @@ app.use(cookieParser());
 // CORS for local development only
 
 
-const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173";
+const FRONTEND_URL = "https://convox-realtime-chat-app-frontend.onrender.com";
 
 app.use(
   cors({
